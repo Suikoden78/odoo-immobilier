@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_bien_form" model="ir.ui.view">
+        <field name="name">immobilier.bien.form</field>
+        <field name="model">immobilier.bien</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="prix"/>
+                        <field name="surface"/>
+                        <field name="disponible"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bien_tree" model="ir.ui.view">
+        <field name="name">immobilier.bien.tree</field>
+        <field name="model">immobilier.bien</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="prix"/>
+                <field name="surface"/>
+                <field name="disponible"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_bien" model="ir.actions.act_window">
+        <field name="name">Biens</field>
+        <field name="res_model">immobilier.bien</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_immobilier" name="Immobilier"/>
+    <menuitem id="menu_bien" parent="menu_immobilier" action="action_bien"/>
+</odoo>
