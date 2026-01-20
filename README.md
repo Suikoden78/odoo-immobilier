@@ -15,14 +15,18 @@ Ce module a été développé dans le cadre d’un test technique Odoo.
 ## Structure du module
 
 immobilier/
-- init.py
-- manifest.py
+- __init__.py
+- __manifest__.py
 - models/
+    - __init__.py
     - bien.py
 - views/
     - bien_view.xml
 - security/
-- ir.model.access.csv
+    - ir.model.access.csv
+- static
+    - description
+        - icon.png
 
 ## Compatibilité
 - Odoo 19.0
