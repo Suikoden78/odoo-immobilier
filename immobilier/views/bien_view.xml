@@ -5,6 +5,7 @@
         <field name="arch" type="xml">
             <form string="Bien Immobilier">
                 <sheet>
+                    <field name="x_bien_image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
                         <label for="x_bien_titre_du_bien" class="oe_edit_only"/>
                         <h1><field name="x_bien_titre_du_bien" placeholder="Ex: Villa bord de mer"/></h1>
@@ -14,6 +15,7 @@
                             <field name="x_bien_reference"/>
                             <field name="x_bien_prix_du_bien"/>
                             <field name="x_bien_statut"/>
+                            <field name="x_bien_ascenseur"/>
                         </group>
                         <group name="surfaces" string="Surfaces">
                             <field name="x_bien_surface_habitable"/>
@@ -48,18 +50,41 @@
     <menuitem id="menu_immobilier_root" name="Immobilier" sequence="10"/>
     <menuitem id="menu_bien_main" name="Gestion" parent="menu_immobilier_root" sequence="10"/>
     <menuitem id="menu_bien_action" name="Tous les biens" parent="menu_bien_main" action="action_bien" sequence="10"/>
-
+    <!--
     <template id="product_immobilier_info_custom" inherit_id="website_sale.product">
         <xpath expr="//div[@id='product_details']" position="inside">
-            <div class="alert alert-info mt-3 shadow-sm" role="alert" t-if="product.x_studio_prix_du_bien">
-                <h4 class="alert-heading">Détails de l'annonce (Via Studio)</h4>
+            <div class="alert alert-info mt-3 shadow-sm" role="alert" t-if="product.x_bien_prix_du_bien">
+                <h4 class="alert-heading">Détails de l'annonce</h4>
                 <hr/>
                 <div class="row">
                     <div class="col-6">
-                        <strong>Prix :</strong> <span t-field="product.x_studio_prix_du_bien"/>
+                        <strong>Prix :</strong> <span t-field="product.x_bien_prix_du_bien"/> €
                     </div>
+                    <div class="col-6">
+                        <strong>Référence :</strong> <span t-field="product.x_bien_reference"/>
+                    </div>
+                </div>
+                
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <strong>Surface Habitable :</strong> <span t-field="product.x_bien_surface_habitable"/> m²
+                    </div>
+                    <div class="col-6">
+                        <strong>Terrain :</strong> <span t-field="product.x_bien_surface_du_terrain"/> m²
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <strong>Ascenseur : </strong>
+                    <span t-if="product.x_bien_ascenseur" class="badge badge-success">Oui</span>
+                    <span t-else="" class="badge badge-secondary">Non</span>
+                </div>
+
+                <div class="mt-2" t-if="product.x_bien_statut">
+                    <strong>Statut : </strong> <span t-field="product.x_bien_statut" class="text-uppercase font-weight-bold"/>
                 </div>
             </div>
         </xpath>
     </template>
+    -->
 </odoo>
